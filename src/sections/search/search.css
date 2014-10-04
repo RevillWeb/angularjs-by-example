@@ -1,0 +1,9 @@
+.search-top {
+    padding: 20px 0;
+}
+.search-results .throbber {
+    margin-top: 50px;
+}
+.search-results .no-data {
+    font-size: 18px;
+}

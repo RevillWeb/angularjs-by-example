@@ -1,0 +1,104 @@
+/*
+ The animate class is apart of the element and the ng-enter class
+ is attached to the element once the enter animation event is triggered
+*/
+.reveal-animation.ng-enter {
+    -webkit-transition: 500ms linear all; /* Safari/Chrome */
+    transition: 500ms linear all; /* All other modern browsers and IE10+ */
+
+    /* The animation preparation code */
+    opacity: 0;
+}
+
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.reveal-animation.ng-enter.ng-enter-active {
+    /* The animation code itself */
+    opacity: 1;
+}
+
+.animate-show {
+    -webkit-transition: 500ms linear all; /* Safari/Chrome */
+    transition: 500ms linear all; /* All other modern browsers and IE10+ */
+    opacity: 1;
+}
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+    display:block !important;
+}
+.animate-show.ng-hide {
+    opacity: 0;
+}
+
+.repeat-animation.ng-enter,
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move {
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position:relative;
+}
+
+.repeat-animation.ng-enter {
+    right: -50px;
+    opacity: 0;
+}
+.repeat-animation.ng-enter.ng-enter-active {
+    left: 0;
+    opacity: 1;
+}
+
+.repeat-animation.ng-leave {
+    left: 0;
+    opacity: 1;
+}
+.repeat-animation.ng-leave.ng-leave-active {
+    right: -50px;
+    opacity:0;
+}
+
+.repeat-animation.ng-move {
+    opacity: 0.5;
+}
+.repeat-animation.ng-move.ng-move-active {
+    opacity: 1;
+}
+
+.throbber {
+    position:relative;
+}
+.throbber:before {
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+}
+.throbber:after {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    content:'';
+    border: 2px solid transparent;
+    border-top-color: #3bb9bb;
+    border-bottom-color: #3bb9bb;
+    border-radius: 50px;
+    -webkit-animation: throbber 1s infinite;
+    animation: throbber 1s infinite;
+}
+@-webkit-keyframes throbber {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes throbber {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,11 @@
+<ul class="show-list">
+    <li data-ng-repeat="item in premieres.shows">
+        <h2 class="showing-date"><span class="glyphicon glyphicon-calendar"></span> {{item.date | amDateFormat:'dddd, MMMM Do YYYY'}}</h2>
+        <ul class="list-of-shows">
+            <li class="col-md-4" data-ng-repeat="show in item.episodes">
+                <show data-show="show.show"></show>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </li>
+</ul>

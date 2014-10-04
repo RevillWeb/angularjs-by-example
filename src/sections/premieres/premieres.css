@@ -1,0 +1,11 @@
+ul.show-list .showing-date {
+    line-height: 40px;
+    text-shadow: 1px 1px 1px #FFF;
+    color: #333;
+    font-size: 16px;
+}
+ul.show-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}

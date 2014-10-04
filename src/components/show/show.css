@@ -1,0 +1,88 @@
+.show-frame {
+    background-color: #FFF;
+    position: relative;
+    height: 300px;
+}
+.show-frame h2 {
+    margin: 0;
+    padding: 0 10px;
+    font-size: 18px;
+    background-color: #222;
+    line-height: 40px;
+    color: #CCC;
+}
+.show-frame img {
+    width: 350px;
+}
+.show-banner {
+    height: 100px;
+}
+.show-frame .inner {
+    padding: 20px;
+}
+.show-frame .inner p {
+    padding: 0;
+    margin: 0;
+}
+.show-frame .inner ul.info {
+    list-style: none;
+    border-bottom: dotted 1px #CCC;
+    margin: -15px 0 10px 0;
+    line-height: 40px;
+}
+.show-frame .inner ul.info li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.show-frame .genres {
+    position: absolute;
+    right: -320px;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: rotate(90deg);
+    transform-origin: left top 0;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: left top 0;
+    overflow: hidden;
+    height: 20px;
+    width: 300px;
+    transition: all .5s linear;
+    -o-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+}
+
+.show-frame .genres li {
+    display: inline-block;
+    line-height: 20px;
+    margin: 0;
+    padding: 0 10px;
+    background-color: rgba(59, 185, 187, 1);
+    color: #FFF;
+}
+.show-frame .buttons {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    background-color: #F1F1F1;
+}
+.show-frame .no-overview {
+    text-align: center;
+    font-style: italic;
+    color: #999999;
+    line-height: 80px;
+}
+ul.list-of-shows {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.list-of-shows li {
+    margin: 15px 0;
+}

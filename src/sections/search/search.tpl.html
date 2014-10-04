@@ -1,0 +1,18 @@
+<div class="search-top">
+    <div class="input-group">
+        <input type="text" class="form-control input-lg" data-ng-model="search.query" data-ng-enter="search.setSearch()">
+        <span class="input-group-btn">
+            <button class="btn btn-inverse btn-lg" type="button" data-ng-click="search.setSearch()"><span class="glyphicon glyphicon-search"></span> Search</button>
+        </span>
+    </div>
+</div>
+<div class="search-results">
+    <div class="no-data" data-ng-if="search.loading == null">Use the search box above to find your favorite TV shows</div>
+    <div class="no-data" data-ng-if="search.shows.length == 0 && search.loading == false">Your search did not return any results</div>
+    <div class="throbber" data-ng-show="search.loading"></div>
+    <ul class="list-of-shows" data-ng-show="search.loading == false">
+        <li class="col-md-4 repeat-animation" data-ng-repeat="show in search.shows">
+            <show data-show="show"></show>
+        </li>
+    </ul>
+</div>

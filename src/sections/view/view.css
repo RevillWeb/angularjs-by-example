@@ -1,0 +1,122 @@
+.view-title {
+    color: #FFF;
+    position: absolute;
+    z-index: 2;
+    top: 100px;
+    right: 0;
+    left: 0;
+    line-height: 40px;
+    background-color: #3bb9bb;
+    font-size: 22px;
+}
+.view-banner {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    height: 500px;
+    background: url('../../assets/images/shattered.png');
+    z-index: 1;
+}
+.view-title ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.view-title ul li {
+    display: inline-block;
+    border-right: solid 1px #32a0a2;
+    padding: 0 10px;
+}
+.view-title ul li:first-child {
+    border-left: solid 1px #32a0a2;
+}
+.view-container {
+    margin-top: 350px;
+    z-index: 2;
+    position: relative;
+}
+.view-container h2 {
+    line-height: 50px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #333;
+}
+.view-section {
+    background-color: #FFF;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 25px;
+    position: relative;
+}
+.view-top .poster {
+    float: left;
+    margin-right: 20px;
+}
+.view-top .poster img {
+    width: 150px;
+    height: auto;
+}
+.view-top .buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+ul.cast {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 220px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+ul.cast li {
+    display: inline-block;
+    margin: 10px;
+}
+ul.cast li .name {
+    margin-top: 5px;
+    line-height: 15px;
+    font-size: 14px;
+}
+ul.cast li .name .character {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+ul.cast li img {
+    height: 150px;
+    width: auto;
+}
+.comments {
+    min-height: 100px;
+}
+.comments .throbber {
+    margin-top: 30px;
+}
+.comments ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.comments ul li {
+    clear: both;
+    margin-bottom: 20px;
+}
+.comments ul li:last-child {
+    clear: both;
+    margin-bottom: 0;
+}
+.comments ul li .avatar {
+    float: left;
+}
+.comments ul li .text {
+    padding: 0 20px;
+    margin-left: 138px;
+}
+.comments ul li .text span {
+    font-size: 14px;
+}
+.comments ul li .text h3 {
+    margin-bottom: 10px;
+}
