@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
 var connect = require('gulp-connect');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
@@ -10,7 +9,6 @@ var revOutdated  = require('gulp-rev-outdated');
 var minifyCss = require('gulp-minify-css');
 var ngHtml2Js = require("gulp-ng-html2js");
 var inject = require("gulp-inject");
-var using = require('gulp-using');
 var clean = require('gulp-clean');
 var replace = require('gulp-replace');
 var gulpAngularExtender = require('gulp-angular-extender');
@@ -96,7 +94,8 @@ gulp.task('watch', ['usemin'], function () {
     gulp.watch('src/**/*.js', ['usemin'])
 });
 
-
+//Build task which should be used to build the application to production (By a continuous integration server for example)
 gulp.task('build', ['create-templates', 'inject-templates', 'usemin', 'add-dependencies', 'copy-asset-files', 'clean', 'connect-prod']);
 
+//Default task which simply servers the source files
 gulp.task('default', ['connect-dev']);
