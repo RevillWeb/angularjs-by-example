@@ -2,19 +2,17 @@
     <ul class="genres">
         <li data-ng-repeat="genre in show.genres" data-ng-style="{'background-color': 'rgba(59, 185, 187, ' + show.genres.length / $index / 5 + ')'}">{{genre}}</li>
     </ul>
-    <img ng-src="{{show.images.banner}}" />
-    <h2>{{show.title}}</h2>
-    <div class="inner" data-ng-switch="show.overview.length > 0">
+    <img ng-src="http://image.tmdb.org/t/p/original/{{show.backdrop_path}}" />
+    <h2>{{show.original_name}}</h2>
+    <div class="inner">
         <ul class="info">
-            <li class="col-md-4"><span class="glyphicon glyphicon-time"></span> {{show.air_time}}</li>
-            <li class="col-md-4"><span class="glyphicon glyphicon-heart"></span> {{show.ratings.percentage}}%</li>
-            <li class="col-md-4"><span class="glyphicon glyphicon-eye-open"></span> {{show.network | characters:12}}</li>
+            <li class="col-md-4"><span class="glyphicon glyphicon-time"></span> {{show.first_air_date | amDateFormat:'DD-MM-YYYY'}}</li>
+            <li class="col-md-4"><span class="glyphicon glyphicon-star"></span> {{show.vote_count}} ({{show.vote_average}})</li>
+            <li class="col-md-4"><span class="glyphicon glyphicon-flag"></span> <span ng-repeat="country in show.origin_country">{{country}}{{$last ? '' : ', '}}</span></li>
             <div class="clearfix"></div>
         </ul>
-        <p data-ng-switch-when="true">{{show.overview | words:25}}</p>
-        <p data-ng-switch-when="false" class="no-overview">No overview available.</p>
     </div>
     <div class="buttons">
-        <a href="#/view/{{show.tvdb_id}}" class="btn btn-success">View</a>
+        <a href="#/view/{{show.id}}" class="btn btn-success">View</a>
     </div>
 </div>

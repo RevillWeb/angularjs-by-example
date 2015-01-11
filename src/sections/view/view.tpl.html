@@ -1,62 +1,35 @@
 <div class="view-banner" data-ng-style="view.setBannerImage();"></div>
 <div class="view-title">
     <div class="container">
-        {{view.show.title}} ({{view.show.year}})
+        {{view.show.original_name}} ({{view.show.first_air_date | amDateFormat:'YYYY'}})
         <ul class="pull-right">
-            <li><span class="glyphicon glyphicon-heart"></span> {{view.show.ratings.percentage}}%</li>
-            <li><span class="glyphicon glyphicon-star"></span> {{view.show.ratings.votes}}</li>
-            <li><span class="glyphicon glyphicon-thumbs-up"></span> {{view.show.ratings.loved}}</li>
-            <li><span class="glyphicon glyphicon-thumbs-down"></span> {{view.show.ratings.hated}}</li>
+            <li><span class="glyphicon glyphicon-star"></span> {{view.show.vote_count}} ({{view.show.vote_average}})</li>
+            <li><span class="glyphicon glyphicon-tag"></span> <span data-ng-repeat="genre in view.show.genres">{{genre.name}}{{$last ? '' : ', '}}</span> </li>
+            <li><span class="glyphicon glyphicon-info-sign"></span> {{view.show.status}}</li>
         </ul>
     </div>
 </div>
 <div class="view-container">
     <h2>Show Summary</h2>
     <div class="view-section view-top">
-        <div class="poster"><img data-ng-src="{{view.show.images.poster}}" /></div>
+        <div class="poster"><img data-ng-src="http://image.tmdb.org/t/p/w342/{{view.show.poster_path}}" /></div>
         <p>{{view.show.overview}}</p>
         <div class="buttons">
-            <a href="{{view.show.url}}" target="_blank" class="btn btn-primary">View on Trakt</a>
-            <a href="http://www.imdb.com/title/{{view.show.imdb_id}}" target="_blank" class="btn btn-warning">View on IMDb</a>
+            <a href="{{view.show.homepage}}" target="_blank" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-home"></span> Homepage</a>
         </div>
         <div class="clearfix"></div>
     </div>
-    <h2>Cast</h2>
-    <div class="view-section cast-container" data-ng-switch="view.show.people.actors.length > 0">
-        <ul class="cast" data-ng-switch-when="true">
-            <li data-ng-repeat="actor in view.show.people.actors | orderBy:'images.headshot':true">
-                <img data-ng-src="{{actor.images.headshot}}" />
-                <div class="name">
-                    <span data-ng-switch="actor.name.length > 0">
-                        <span data-ng-switch-when="true">{{actor.name}}</span>
-                        <span data-ng-switch-when="false">Unknown</span>
-                    </span>
-                    <div class="character">as
-                        <span data-ng-switch="actor.character.length > 0">
-                            <span data-ng-switch-when="true">{{actor.character}}</span>
-                            <span data-ng-switch-when="false">Unknown</span>
-                        </span>
-                    </div>
+    <h2>Seasons</h2>
+    <div class="view-section season-container" data-ng-switch="view.show.seasons.length > 0">
+        <ul class="season" data-ng-switch-when="true">
+            <li data-ng-repeat="season in view.show.seasons">
+                <img data-ng-src="http://image.tmdb.org/t/p/w185/{{season.poster_path}}" />
+                <div class="season-info">
+                    <div class="col-md-2">#{{season.season_number}}</div>
+                    <div class="col-md-10">Episode Count: {{season.episode_count}}</div>
                 </div>
             </li>
         </ul>
         <p class="no-data" data-ng-switch-when="false">No cast information available</p>
-    </div>
-    <h2>Comments</h2>
-    <div class="view-section comments" data-ng-switch="view.comments.length > 0">
-        <div class="throbber" data-ng-if="view.loadingComments"></div>
-        <ul data-ng-switch-when="true">
-            <li data-ng-repeat="comment in view.comments">
-                <div class="avatar">
-                    <img data-ng-src="{{comment.user.avatar}}" />
-                </div>
-                <div class="text">
-                    <h3>{{comment.user.username}} <span am-time-ago="comment.inserted" am-preprocess="unix"></span></h3>
-                    {{comment.text}}
-                </div>
-                <div class="clearfix"></div>
-            </li>
-        </ul>
-        <p class="no-data" data-ng-switch-when="false">No comments to display</p>
     </div>
 </div>

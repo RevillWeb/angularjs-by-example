@@ -1,7 +1,7 @@
 .show-frame {
     background-color: #FFF;
     position: relative;
-    height: 300px;
+    height: 337px;
 }
 .show-frame h2 {
     margin: 0;
@@ -12,13 +12,15 @@
     color: #CCC;
 }
 .show-frame img {
-    width: 350px;
+    width: 100%;
+    height: 197px;
 }
 .show-banner {
-    height: 100px;
+
 }
 .show-frame .inner {
-    padding: 20px;
+    padding: 10px;
+    height: 100px;
 }
 .show-frame .inner p {
     padding: 0;
@@ -27,13 +29,15 @@
 .show-frame .inner ul.info {
     list-style: none;
     border-bottom: dotted 1px #CCC;
-    margin: -15px 0 10px 0;
+    padding: 0;
     line-height: 40px;
 }
 .show-frame .inner ul.info li {
     display: inline-block;
     margin: 0;
     padding: 0;
+    text-align: center;
+    font-size: 16px;
 }
 .show-frame .genres {
     position: absolute;

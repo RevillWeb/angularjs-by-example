@@ -1,0 +1,8 @@
+<div class="trending-results">
+    <div class="no-data" data-ng-if="trending.shows.length == 0">There are no popular shows available to display</div>
+    <ul class="list-of-shows">
+        <li class="col-md-4 repeat-animation" data-ng-repeat="show in popular.shows">
+            <show data-show="show"></show>
+        </li>
+    </ul>
+</div>

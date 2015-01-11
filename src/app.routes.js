@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-    .module('app.routes', [])
+    .module('app.routes', ['ngRoute'])
     .config(config);
 
 function config ($routeProvider) {
@@ -27,12 +27,12 @@ function config ($routeProvider) {
             templateUrl: 'sections/search/search.tpl.html',
             controller: 'SearchController as search'
         })
-        .when('/trending', {
-            templateUrl: 'sections/trending/trending.tpl.html',
-            controller: 'TrendingController as trending',
+        .when('/popular', {
+            templateUrl: 'sections/popular/popular.tpl.html',
+            controller: 'PopularController as popular',
             resolve: {
                 shows: function(ShowService) {
-                    return ShowService.getTrending();
+                    return ShowService.getPopular();
                 }
             }
         })

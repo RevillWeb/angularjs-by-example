@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('SearchController', function($scope, $location, $routeParams, ShowService, PageValues) {
+    .controller('SearchController', function($location, $routeParams, ShowService, PageValues) {
         //Set page title and description
         PageValues.title = "SEARCH";
         PageValues.description = "Search for your favorite TV shows.";

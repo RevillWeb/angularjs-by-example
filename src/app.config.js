@@ -1,5 +1,4 @@
 'use strict';
-
 angular
     .module('app.config', [])
     .config(configs)
@@ -25,7 +24,7 @@ function configs($httpProvider) {
             return promise.then(success, error);
         }
     };
-    $httpProvider.responseInterceptors.push(interceptor);
+    $httpProvider.interceptors.push(interceptor);
 }
 
 function runs($rootScope, PageValues) {

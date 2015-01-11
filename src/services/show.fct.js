@@ -5,54 +5,65 @@
  */
 angular
     .module('app.services')
-    .constant('TRAKT_API_KEY', '43232be0b3972a27cbd7cf7208225b9f')
-    .constant('TRAKT_BASE_URL', 'http://api.trakt.tv')
+    .constant('API_KEY', '87de9079e74c828116acce677f6f255b')
+    .constant('BASE_URL', 'http://api.themoviedb.org/3')
     .factory('ShowService', dataService);
 
-function dataService($http, TRAKT_API_KEY, TRAKT_BASE_URL, $log, $q, $cacheFactory) {
-    var cacheFactory = $cacheFactory('ShowService');
+function dataService($http, API_KEY, BASE_URL, $log, moment) {
     var data = {
         'getPremieres': getPremieres,
         'get': get,
-        'getComments': getComments,
         'search': search,
-        'getTrending': getTrending
+        'getPopular': getPopular
     };
-    function makeRequest(url, name) {
-        var cache = cacheFactory.get(name);
-        var deferred = $q.defer();
-        if (cache) {
-            deferred.resolve(cache);
-        } else {
-            $http({
-                'url': TRAKT_BASE_URL + '/' + url,
-                'method': 'JSONP'
-            }).then(function(response){
-                cacheFactory.put(name, response.data);
-                deferred.resolve(response.data);
-            }).catch(dataServiceError);
-        }
-        return deferred.promise;
+    function makeRequest(url, params) {
+        var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY;
+        angular.forEach(params, function(value, key){
+            requestUrl = requestUrl + '&' + key + '=' + value;
+        });
+        return $http({
+            'url': requestUrl,
+            'method': 'GET',
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            'cache': true
+        }).then(function(response){
+            return response.data;
+        }).catch(dataServiceV2Error);
     }
     function getPremieres() {
-        return makeRequest('calendar/premieres.json/' + TRAKT_API_KEY + '/?callback=JSON_CALLBACK', 'getPremieres');
+        //Get first day of the current month
+        var date = new Date();
+        date.setDate(1);
+        return makeRequest('discover/tv', {'first_air_date.gte': moment(date).format('DD-MM-YYYY'), append_to_response: 'genres'}).then(function(data){
+            return data.results;
+        });
+
     }
     function get(id) {
-        return makeRequest('show/summary.json/' + TRAKT_API_KEY + '/' + id + '/?callback=JSON_CALLBACK', 'get');
-    }
-    function getComments(id) {
-        return makeRequest('show/comments.json/' + TRAKT_API_KEY + '/' + id + '/?callback=JSON_CALLBACK', 'getComments');
+        return makeRequest('tv/' + id, {});
     }
     function search(query) {
-        return makeRequest('search/shows.json/' + TRAKT_API_KEY + '?query=' + query + '&callback=JSON_CALLBACK', 'search');
+        return makeRequest('search/tv', {query: query}).then(function(data){
+            return data.results;
+        });
     }
-    function getTrending() {
-        return makeRequest('shows/trending.json/' + TRAKT_API_KEY + '/?callback=JSON_CALLBACK', 'getTrending');
+    function getPopular() {
+        return makeRequest('tv/popular', {}).then(function(data){
+            return data.results;
+        });
     }
     return data;
 
     function dataServiceError(errorResponse) {
         var data = (typeof errorResponse.data != 'undefined') ? ": " + errorResponse.data : ".";
         $log.error('XHR Failed for ShowService' + data);
+    }
+
+    function dataServiceV2Error(errorResponse) {
+        $log.error('XHR Failed for ShowService');
+        $log.error(errorResponse);
+        return errorResponse;
     }
 }
