@@ -1,32 +1,47 @@
-<div class="view-banner" data-ng-style="view.setBannerImage();"></div>
+<div class="view-banner" preload-bg-image="http://image.tmdb.org/t/p/original/{{view.show.backdrop_path}}" default-image="assets/images/shattered.png"></div>
 <div class="view-title">
     <div class="container">
         {{view.show.original_name}} ({{view.show.first_air_date | amDateFormat:'YYYY'}})
         <ul class="pull-right">
-            <li><span class="glyphicon glyphicon-star"></span> {{view.show.vote_count}} ({{view.show.vote_average}})</li>
-            <li><span class="glyphicon glyphicon-tag"></span> <span data-ng-repeat="genre in view.show.genres">{{genre.name}}{{$last ? '' : ', '}}</span> </li>
-            <li><span class="glyphicon glyphicon-info-sign"></span> {{view.show.status}}</li>
+            <li><span class="icon icon-heart3"></span> {{view.show.vote_average}}</li>
+            <li><span class="icon icon-tags"></span> <span data-ng-repeat="genre in view.show.genres">{{genre.name}}{{$last ? '' : ', '}}</span> </li>
+            <li><span class="icon icon-info2"></span> {{view.show.status}}</li>
         </ul>
     </div>
 </div>
 <div class="view-container">
     <h2>Show Summary</h2>
-    <div class="view-section view-top">
-        <div class="poster"><img data-ng-src="http://image.tmdb.org/t/p/w342/{{view.show.poster_path}}" /></div>
-        <p>{{view.show.overview}}</p>
+    <div class="view-section view-top" data-ng-switch="view.show.overview != null">
+        <div class="poster"><img preload-image default-image="assets/images/loading.jpg" fallback-image="assets/images/fallback-thin.jpg" data-ng-src="http://image.tmdb.org/t/p/w342/{{view.show.poster_path}}" /></div>
+        <p data-ng-switch-when="true">{{view.show.overview}}</p>
+        <p data-ng-switch-when="false" class="no-overview">No overview is available for this show</p>
         <div class="buttons">
-            <a href="{{view.show.homepage}}" target="_blank" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-home"></span> Homepage</a>
+            <a href="{{view.show.homepage}}" target="_blank" class="btn btn-lg btn-info"><span class="icon icon-home"></span> Homepage</a>
         </div>
         <div class="clearfix"></div>
     </div>
     <h2>Seasons</h2>
-    <div class="view-section season-container" data-ng-switch="view.show.seasons.length > 0">
-        <ul class="season" data-ng-switch-when="true">
-            <li data-ng-repeat="season in view.show.seasons">
-                <img data-ng-src="http://image.tmdb.org/t/p/w185/{{season.poster_path}}" />
-                <div class="season-info">
+    <div class="view-section" data-ng-switch="view.show.seasons.length > 0">
+        <ul class="view-list" data-ng-switch-when="true">
+            <li data-ng-repeat="season in view.show.seasons" data-ng-if="season.episode_count > 0">
+                <img preload-image default-image="assets/images/loading.jpg" fallback-image="assets/images/fallback-thin.jpg" data-ng-src="http://image.tmdb.org/t/p/w185/{{season.poster_path}}" />
+                <div class="item-info">
                     <div class="col-md-2">#{{season.season_number}}</div>
                     <div class="col-md-10">Episode Count: {{season.episode_count}}</div>
+                </div>
+            </li>
+        </ul>
+        <p class="no-data" data-ng-switch-when="false">No season information available</p>
+    </div>
+    <!-- Information available through additional API calls -->
+    <h2>Cast</h2>
+    <div class="view-section cast-container" data-ng-switch="view.show.cast.length > 0">
+        <ul class="view-list" data-ng-switch-when="true">
+            <li data-ng-repeat="actor in view.show.cast">
+                <img preload-image default-image="assets/images/loading.jpg" fallback-image="assets/images/fallback-thin.jpg" data-ng-src="http://image.tmdb.org/t/p/w185/{{actor.profile_path}}" />
+                <div class="item-info">
+                    {{actor.name}} as <br />
+                    <strong>{{actor.character}}</strong>
                 </div>
             </li>
         </ul>

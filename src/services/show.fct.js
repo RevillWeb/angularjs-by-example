@@ -14,7 +14,8 @@ function dataService($http, API_KEY, BASE_URL, $log, moment) {
         'getPremieres': getPremieres,
         'get': get,
         'search': search,
-        'getPopular': getPopular
+        'getPopular': getPopular,
+        'getCast': getCast
     };
     function makeRequest(url, params) {
         var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY;
@@ -43,6 +44,9 @@ function dataService($http, API_KEY, BASE_URL, $log, moment) {
     }
     function get(id) {
         return makeRequest('tv/' + id, {});
+    }
+    function getCast(id) {
+        return makeRequest('tv/' + id + '/credits', {});
     }
     function search(query) {
         return makeRequest('search/tv', {query: query}).then(function(data){

@@ -7,3 +7,10 @@
 .search-results .no-data {
     font-size: 18px;
 }
+.search-btn {
+    height: 46px;
+}
+.search-btn:hover {
+    height: 46px;
+    margin-top: 0;
+}

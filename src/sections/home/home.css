@@ -5,14 +5,13 @@
 }
 .home-banner {
     background: url('../../assets/images/shattered.png');
-    height: 460px;
 }
 .home-banner .inner {
-    padding: 100px 0;
+    padding: 60px 0 0 0;
 }
 .home-banner .inner img {
     float: left;
-    margin-top: -75px;
+    margin-top: -45px;
 }
 .home-banner .inner h1 {
     line-height: 60px;
@@ -65,4 +64,17 @@
     background-color: inherit;
     line-height: 30px;
     text-align: center;
+}
+.tutorials li:last-child p {
+    color: #333;
+}
+.share-buttons {
+    float: right;
+    width: 330px;
+    height: 50px;
+    margin-top: -10px;
+}
+.home-buttons {
+    text-align: center;
+    padding: 20px 0 40px 0;
 }

@@ -10,9 +10,13 @@ angular
         vm.show = show;
         vm.setBannerImage = function() {
             return {
-                'background': 'url(http://image.tmdb.org/t/p/original/' + vm.show.backdrop_path + ') no-repeat',
+                'background': 'url() no-repeat',
                 'background-size': '100%',
-                'background-position': '80% 30%'
+                'background-position': '100% 0%'
             };
         };
+        vm.show.cast = [];
+        ShowService.getCast(vm.show.id).then(function(response){
+            vm.show.cast = response.cast;
+        });
     });

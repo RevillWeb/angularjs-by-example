@@ -1,5 +1,5 @@
 body {
-    background-color: #D1D1D1;
+    background: #D1D1D1 url('../images/mochaGrunge.png');
     font-family: 'Lato', sans-serif;
 }
 #main {
@@ -99,7 +99,7 @@ footer .container .glyphicon-heart {
 .no-data {
     text-align: center;
     font-style: italic;
-    color: #999;
+    color: #333;
     line-height: 100px;
     margin: 0;
 }
@@ -112,4 +112,99 @@ footer .container .glyphicon-heart {
     bottom: 0;
     padding: 200px 0 0 0;
     background-color: rgba(0, 0, 0, 0.80);
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 9px 12px 7px;
+    border-width: 0 1px 4px 1px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.btn-default {
+    color: #555555;
+    background-color: #eeeeee;
+    border-color: #e2e2e2;
+}
+.btn-default:hover, .btn-default:focus, .btn-group.open .dropdown-toggle.btn-default {
+    background-color: #eeeeee;
+    border-color: #e2e2e2;
+}
+.btn-primary {
+    color: #ffffff;
+    background-color: #158cba;
+    border-color: #127ba3;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-group.open .dropdown-toggle.btn-primary {
+    background-color: #158cba;
+    border-color: #127ba3;
+}
+.btn-success {
+    color: #ffffff;
+    background-color: #28b62c;
+    border-color: #23a127;
+}
+.btn-success:hover, .btn-success:focus, .btn-group.open .dropdown-toggle.btn-success {
+    background-color: #28b62c;
+    border-color: #23a127;
+}
+.btn:hover {
+    margin-top: 1px;
+    border-bottom-width: 3px;
+}
+.btn-info {
+    color: #ffffff;
+    background-color: #75caeb;
+    border-color: #5fc1e8;
+}
+.btn-info:hover, .btn-info:focus, .btn-group.open .dropdown-toggle.btn-info {
+    background-color: #75caeb;
+    border-color: #5fc1e8;
+}
+.btn-info.disabled, .btn-info[disabled], fieldset[disabled] .btn-info, .btn-info.disabled:hover, .btn-info[disabled]:hover, fieldset[disabled] .btn-info:hover, .btn-info.disabled:focus, .btn-info[disabled]:focus, fieldset[disabled] .btn-info:focus, .btn-info.disabled.focus, .btn-info[disabled].focus, fieldset[disabled] .btn-info.focus, .btn-info.disabled:active, .btn-info[disabled]:active, fieldset[disabled] .btn-info:active, .btn-info.disabled.active, .btn-info[disabled].active, fieldset[disabled] .btn-info.active {
+    background-color: #75caeb;
+    border-color: #5fc1e8;
+}
+.btn-lg, .btn-group-lg > .btn {
+    padding: 15px 16px 13px;
+    line-height: 15px;
+}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.label-info {
+    background-color: #75caeb;
+}
+.label-default {
+    background-color: #999999;
+}
+.label-dark {
+    background-color: #333;
 }

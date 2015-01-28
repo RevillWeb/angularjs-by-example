@@ -15,7 +15,8 @@
     left: 0;
     right: 0;
     height: 500px;
-    background: url('../../assets/images/shattered.png');
+    background-size: 100%;
+    background-position: 100% 0;
     z-index: 1;
 }
 .view-title ul {
@@ -49,6 +50,9 @@
     position: relative;
     margin-bottom: 20px;
 }
+.view-top p {
+    padding-bottom: 70px;
+}
 .view-top .poster {
     float: left;
     margin-right: 20px;
@@ -56,12 +60,21 @@
 .view-top .poster img {
     width: 150px;
     height: auto;
+    z-index: 100;
+    position: relative;
 }
 .view-top .buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #222;
+    height: 80px;
+    padding: 20px;
     text-align: center;
-    margin-top: 20px;
+    z-index: 90;
 }
-ul.season {
+ul.view-list {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -70,16 +83,15 @@ ul.season {
     overflow-y: hidden;
     white-space: nowrap;
 }
-ul.season li {
+ul.view-list li {
     display: inline-block;
     margin: 10px;
 }
-ul.season li .season-info {
+ul.view-list li .item-info {
     text-align: center;
-    font-weight: bold;
     font-size: 16px;
 }
-ul.season li img {
+ul.view-list li img {
     height: 297px;
 }
 .comments {

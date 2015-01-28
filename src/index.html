@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="sections/search/search.css"/>
     <link rel="stylesheet" href="sections/premieres/premieres.css"/>
     <!-- endbuild -->
+
+    <script type="text/javascript">
+        //<![CDATA[
+        (function() {
+            var shr = document.createElement('script');
+            shr.setAttribute('data-cfasync', 'false');
+            shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+            shr.type = 'text/javascript'; shr.async = 'true';
+            shr.onload = shr.onreadystatechange = function() {
+                var rs = this.readyState;
+                if (rs && rs != 'complete' && rs != 'loaded') return;
+                var site_id = 'eafbfda40f862712debe1bc8fcb68c8f';
+                try { Shareaholic.init(site_id); } catch (e) {}
+            };
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(shr, s);
+        })();
+        //]]>
+    </script>
 </head>
 <body data-ng-app="app">
 
@@ -45,11 +64,6 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p><span class="glyphicon glyphicon-heart"></span> Learn more about AngularJS at <a href="http://www.revillweb.com/">www.revillweb.com</a>.</p>
-        </div>
-    </footer>
     <!-- build:assets assets.min.js -->
     <!-- ASSETS -->
         <script src="assets/js/angular.min.js"></script>
@@ -59,6 +73,8 @@
         <script src="assets/js/angular-touch.min.js"></script>
         <script src="assets/js/moment.min.js"></script>
         <script src="assets/js/angular-moment.min.js"></script>
+        <script src="assets/js/angular-truncate.js"></script>
+        <script src="assets/js/angular-preload-image.min.js"></script>
     <!-- / -->
     <!-- endbuild -->
     <!-- build:js app.min.js -->
