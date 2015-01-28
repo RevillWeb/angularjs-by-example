@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS App Example</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles-15990cc6.css"/>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        (function() {
+            var shr = document.createElement('script');
+            shr.setAttribute('data-cfasync', 'false');
+            shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+            shr.type = 'text/javascript'; shr.async = 'true';
+            shr.onload = shr.onreadystatechange = function() {
+                var rs = this.readyState;
+                if (rs && rs != 'complete' && rs != 'loaded') return;
+                var site_id = 'eafbfda40f862712debe1bc8fcb68c8f';
+                try { Shareaholic.init(site_id); } catch (e) {}
+            };
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(shr, s);
+        })();
+        //]]>
+    </script>
+</head>
+<body data-ng-app="app">
+
+    <header id="site-header">
+        <div class="container">
+            <div class="pull-left logo">ANGULARJS <span class="alt">BY</span> EXAMPLE</div>
+            <ul class="pull-right menu">
+                <li><a href="#/">HOME</a></li>
+                <li><a href="#/premieres">PREMIERES</a></li>
+                <li><a href="#/popular">POPULAR</a></li>
+                <li><a href="#/search">SEARCH</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="site-bar" data-ng-controller="BarController as bar">
+        <div class="container">
+            <h1>{{bar.data.title}}</h1>
+            <p>{{bar.data.description}}</p>
+        </div>
+        <div class="page-loader" data-ng-show="bar.data.loading"><div class="throbber"></div></div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+    </section>
+
+    <script src="assets.min-7941cf43.js"></script>
+    <script src="app.min-74bc464f.js"></script>
+</body>
+</html>
