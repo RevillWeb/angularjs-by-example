@@ -43,30 +43,40 @@
     list-style: none;
 }
 .tutorials li {
+    position: relative;
     background-color: #FFF;
-    padding: 20px;
+    padding: 20px 150px 20px 20px;
+    margin-bottom: 20px;
+}
+.tutorials li.offline {
+    background-color: #999999;
+    color: #666666;
+}
+.tutorials li .btn {
+    position: absolute;
+    right: 40px;
+    top: 40px;
 }
 .tutorials li p {
     margin: 10px 0 0 0;
     font-size: 16px;
-    color: #999;
+    line-height: 20px;
+    color: #666;
 }
-.tutorials li .image {
-    width: 120px;
-    height: 120px;
+.tutorials li .number {
+    width: 80px;
+    height: 80px;
     float: left;
-    background-color: #E1E1E1;
+    background-color: #333;
     margin: 0 20px 0 0;
-}
-.tutorials li:last-child {
-    clear: both;
-    font-style: italic;
-    background-color: inherit;
-    line-height: 30px;
     text-align: center;
+    line-height: 80px;
+    font-size: 40px;
+    color: #CCC;
 }
-.tutorials li:last-child p {
-    color: #333;
+.tutorials li.offline .number {
+    background-color: #919191;
+    color: #666;
 }
 .share-buttons {
     float: right;
@@ -77,4 +87,14 @@
 .home-buttons {
     text-align: center;
     padding: 20px 0 40px 0;
+}
+.no-data.tuts {
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+@media(max-width:992px) {
+    .home-banner .inner {
+        width: 100%;
+        padding: 20px;
+    }
 }

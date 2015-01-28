@@ -6,8 +6,8 @@
             <h2>Learn how to build superb AngularJS web applications using real world best practice examples coupled with in-depth tutorials from <a href="#">revillweb.com</a>.</h2>
             <p>This website is a living and breathing AngularJS web application built using recommended best practices. <strong>AngularJS by example</strong> provides you with a complete application demonstrating recommended best practices from app structure all the way through to production deployment.</p>
             <div class="home-buttons">
-                <a href="#" class="btn btn-lg btn-primary"><span class="icon icon-github2"></span> GitHub</a>
-                <a href="#" class="btn btn-lg btn-default"><span class="icon icon-home"></span> RevillWeb</a>
+                <a href="https://github.com/RevillWeb/angularjs-by-example" target="_blank" class="btn btn-lg btn-primary"><span class="icon icon-github2"></span> GitHub</a>
+                <a href="http://www.revillweb.com" target="_blank" class="btn btn-lg btn-default"><span class="icon icon-home"></span> RevillWeb</a>
             </div>
         </div>
     </div>
@@ -22,13 +22,14 @@
     </div>
     <div class="container">
         <ul class="tutorials">
-            <li>
-                <div class="image"></div>
-                <h3>INTRODUCTION</h3>
-                <p>This tutorial provides an introduction to this AngularJS application, its ambitions and shortcomings.</p>
+            <li data-ng-repeat="tutorial in home.tutorials track by $index" data-ng-class="{'offline': (tutorial.link == '#')}">
+                <div class="number">#{{$index + 1}}</div>
+                <h3>{{tutorial.title}}</h3>
+                <p>{{tutorial.description}}</p>
+                <a href="{{tutorial.link}}" data-ng-class="{'disabled': (tutorial.link == '#')}" class="btn btn-lg btn-primary"><span class="icon icon-arrow-up-right5"></span> View</a>
                 <div class="clearfix"></div>
             </li>
-            <li><p>More tutorials coming soon...</p></li>
         </ul>
+        <p class="no-data tuts">More tutorials coming soon...</p>
     </div>
 </div>

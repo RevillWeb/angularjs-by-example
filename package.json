@@ -1,6 +1,6 @@
 {
   "name": "angularjs-by-example",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "An example application to demonstrate a wide range of AngularJS best practices",
   "main": "index.html",
   "scripts": {
