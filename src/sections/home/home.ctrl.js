@@ -11,7 +11,7 @@ angular
             {
                 title: "INTRODUCTION",
                 description: "An introduction to the AngularJS by example application and the tutorial series. All about why this project exists, what the tutorial series is likely to include and who the tutorials are for.",
-                link: "http://www.google.com/"
+                link: "http://www.revillweb.com/angularjs-by-example/1-introduction/"
             },
             {
                 title: "PROJECT STRUCTURE & MODULARITY",
