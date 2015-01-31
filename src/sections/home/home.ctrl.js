@@ -16,7 +16,7 @@ angular
             {
                 title: "PROJECT STRUCTURE & MODULARITY",
                 description: "Looking at project structure in terms of AngularJS modularity and also how best to lay out your directories to make development a breeze.",
-                link: "#"
+                link: "http://www.revillweb.com/angularjs-by-example/2-project-structure/"
             },
             {
                 title: "CONTROLLERS",
