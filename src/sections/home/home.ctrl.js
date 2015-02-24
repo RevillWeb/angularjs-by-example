@@ -21,12 +21,12 @@ angular
             {
                 title: "CONTROLLERS",
                 description: "Investigating the different ways you can write AngularJS controllers along with recommended best practices.",
-                link: "#"
+                link: "http://www.revillweb.com/angularjs-by-example/3-controllers/"
             },
             {
-                title: "SHARING DATA WITH SERVICES",
-                description: "How to effectively share data around your AngularJS application and when best to use the different types of service available.",
-                link: "#"
+                title: "SHARING DATA WITH ANGULARJS SERVICES",
+                description: "The fourth part in the AngularJS by Example series showing how to use AngularJS services to consume a third-party API and share data throughout your entire application.",
+                link: "http://www.revillweb.com/angularjs-by-example/4-sharing-data-with-angularjs-services/"
             },
             {
                 title: "WRITING DIRECTIVES",
