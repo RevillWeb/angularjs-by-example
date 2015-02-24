@@ -31,7 +31,7 @@ function dataService($http, API_KEY, BASE_URL, $log, moment) {
             'cache': true
         }).then(function(response){
             return response.data;
-        }).catch(dataServiceV2Error);
+        }).catch(dataServiceError);
     }
     function getPremieres() {
         //Get first day of the current month
@@ -40,7 +40,6 @@ function dataService($http, API_KEY, BASE_URL, $log, moment) {
         return makeRequest('discover/tv', {'first_air_date.gte': moment(date).format('DD-MM-YYYY'), append_to_response: 'genres'}).then(function(data){
             return data.results;
         });
-
     }
     function get(id) {
         return makeRequest('tv/' + id, {});
@@ -61,11 +60,6 @@ function dataService($http, API_KEY, BASE_URL, $log, moment) {
     return data;
 
     function dataServiceError(errorResponse) {
-        var data = (typeof errorResponse.data != 'undefined') ? ": " + errorResponse.data : ".";
-        $log.error('XHR Failed for ShowService' + data);
-    }
-
-    function dataServiceV2Error(errorResponse) {
         $log.error('XHR Failed for ShowService');
         $log.error(errorResponse);
         return errorResponse;
