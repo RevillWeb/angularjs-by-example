@@ -7,7 +7,6 @@
     <h2>{{show.original_name | characters:40}}</h2>
     <div class="inner">
         <ul class="info">
-            <!--<li class="col-md-4"></li>-->
             <li class="col-xs-6 rating"><span class="icon icon-heart3"></span> {{show.vote_average}}</li>
             <li class="col-xs-6 country"><span class="icon icon-earth"></span> <span data-ng-repeat="country in show.origin_country">{{country}}{{$last ? '' : ', '}}</span> <span data-ng-if="show.origin_country.length == 0">--</span></li>
             <div class="clearfix"></div>

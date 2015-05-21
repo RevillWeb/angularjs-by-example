@@ -3,7 +3,7 @@ angular
     .directive('show', show);
 function show(ShowService) {
     var directive = {
-        link: link,
+        controller: controller,
         templateUrl: 'components/show/show.tpl.html',
         restrict: 'E',
         scope: {
@@ -11,10 +11,10 @@ function show(ShowService) {
         }
     };
     return directive;
-    function link(scope) {
-        scope.genres = [];
-        ShowService.get(scope.show.id).then(function(response){
-            scope.genres = response.genres;
+    function controller($scope) {
+        $scope.genres = [];
+        ShowService.get($scope.show.id).then(function(response){
+            $scope.genres = response.genres;
         });
     }
 }
