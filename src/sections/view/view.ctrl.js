@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('ViewController', function($scope, $location, PageValues, show, ShowService, $routeParams) {
+    .controller('ViewController', ['$scope', '$location', 'PageValues', 'show', 'ShowService', '$routeParams', function($scope, $location, PageValues, show, ShowService, $routeParams) {
         //Set page title and description
         PageValues.title = "VIEW";
         PageValues.description = "Overview, seasons & info for '" + show.original_name + "'.";
@@ -19,4 +19,4 @@ angular
         ShowService.getCast(vm.show.id).then(function(response){
             vm.show.cast = response.cast;
         });
-    });
+    }]);

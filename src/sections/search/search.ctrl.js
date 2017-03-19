@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('SearchController', function($location, $routeParams, ShowService, PageValues) {
+    .controller('SearchController', ['$location', '$routeParams', 'ShowService', 'PageValues', function($location, $routeParams, ShowService, PageValues) {
         //Set page title and description
         PageValues.title = "SEARCH";
         PageValues.description = "Search for your favorite TV shows.";
@@ -21,8 +21,8 @@ angular
                 vm.loading = false;
             });
         };
-        if (typeof $routeParams.query != "undefined") {
+        if (typeof $routeParams.query !== "undefined") {
             vm.performSearch($routeParams.query);
             vm.query = decodeURI($routeParams.query);
         }
-    });
+    }]);
