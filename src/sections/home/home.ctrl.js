@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module('app.core')
-    .controller('HomeController', function($scope, PageValues) {
+    .controller('HomeController', ['$scope', 'PageValues', function($scope, PageValues) {
         //Set page title and description
         PageValues.title = "HOME";
         PageValues.description = "Learn AngularJS using best practice real world examples.";
@@ -39,4 +39,4 @@ angular
                 link: "#"
             }
         ];
-    });
+    }]);
