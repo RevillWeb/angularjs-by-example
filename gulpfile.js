@@ -12,6 +12,15 @@ var inject = require("gulp-inject");
 var clean = require('gulp-clean');
 var replace = require('gulp-replace');
 var gulpAngularExtender = require('gulp-angular-extender');
+var ts = require('gulp-typescript');
+var tsProject = ts.createProject("tsconfig.json");
+
+//Compile all typescript files into javascript
+gulp.task('ts-build', function() {
+    return gulp.src(['src/**/*.ts'])
+        .pipe(tsProject())
+        .pipe(gulp.dest("src/"));
+});
 
 //Convert all HTML tpl files to Angular template module
 gulp.task('create-templates', function() {
@@ -35,7 +44,7 @@ gulp.task('inject-templates', ['create-templates'], function() {
 
 //Minify, concatenate and version CSS and JS
 //Use ngAnnotate to take care of Angular inject issues
-gulp.task('usemin', ['inject-templates'], function() {
+gulp.task('usemin', ['inject-templates', 'ts-build'], function() {
     return gulp.src('./src/index.html')
         .pipe(usemin({
             css: [minifyCss(), 'concat', rev()],

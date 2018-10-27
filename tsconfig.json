@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "none",
+        "target": "es5",
+        "types": [
+            "angular"
+        ]
+    },
+    "include": [
+        "./src/**/*.ts"
+    ]
+}
