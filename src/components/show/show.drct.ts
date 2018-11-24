@@ -1,9 +1,9 @@
 class ShowDirectiveController implements ng.IController {
     static $inject = ['$scope', 'ShowService']
     
-    constructor(private $scope, private ShowService : ShowService) {
+    constructor(private $scope : any, private ShowService : ShowService) {
         $scope.genres = [];
-        ShowService.get($scope.show.id).then(function(response){
+        ShowService.get($scope.show.id).then((response : Show) => {
             $scope.genres = response.genres;
         });
         return this;

@@ -1,7 +1,12 @@
 {
     "compilerOptions": {
         "allowJs": true,
+        "alwaysStrict": true,                
         "module": "none",
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
         "target": "es5",
         "types": [
             "angular"

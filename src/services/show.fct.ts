@@ -1,3 +1,19 @@
+class Actor {
+    name: string
+    character: string
+}
+
+class Show {
+    id: number
+    original_name: string
+    cast: Actor[]
+    genres: string[]
+}
+
+class TvServiceResponse {
+    results: Show[]
+}
+
 /*
  * Contains a service to communicate with the TRACK TV API
  */
@@ -6,7 +22,7 @@ class ShowService {
 
     constructor(private $http : ng.IHttpService,
         private $log : ng.ILogService,
-        private moment) {
+        private moment : any) {
             return this;
         }
 
@@ -33,7 +49,7 @@ class ShowService {
         //Get first day of the current month
         let date = new Date();
         date.setDate(1);
-        return this.makeRequest('discover/tv', {'first_air_date.gte': this.moment(date).format('DD-MM-YYYY'), append_to_response: 'genres'}).then((data) => {
+        return this.makeRequest('discover/tv', {'first_air_date.gte': this.moment(date).format('DD-MM-YYYY'), append_to_response: 'genres'}).then((data : TvServiceResponse) => {
             return data.results;
         });
     }
@@ -44,17 +60,17 @@ class ShowService {
         return this.makeRequest(`tv/${id}/credits`, {});
     }
     search = (query : string) => {
-        return this.makeRequest('search/tv', {query: query}).then(function(data){
+        return this.makeRequest('search/tv', {query: query}).then((data : TvServiceResponse) => {
             return data.results;
         });
     }
     getPopular = () => {
-        return this.makeRequest('tv/popular', {}).then(function(data){
+        return this.makeRequest('tv/popular', {}).then((data : TvServiceResponse) => {
             return data.results;
         });
     }
 
-    private dataServiceError = (errorResponse) => {
+    private dataServiceError = (errorResponse : string) => {
         this.$log.error('XHR Failed for ShowService');
         this.$log.error(errorResponse);
         return errorResponse;

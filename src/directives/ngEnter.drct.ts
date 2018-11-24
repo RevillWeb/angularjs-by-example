@@ -1,6 +1,6 @@
 class NgEnterDirective implements ng.IDirective {
-    public link = (scope, element : JQLite, attrs : ng.IAttributes) => {
-        element.bind("keydown keypress", function(event) {
+    public link = (scope : any, element : JQLite, attrs : ng.IAttributes) => {
+        element.bind("keydown keypress", (event) => {
             if(event.which === 13) {
                 scope.$apply(function(){
                     scope.$eval(attrs.ngEnter);

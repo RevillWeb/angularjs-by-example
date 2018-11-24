@@ -8,16 +8,14 @@ class ViewController {
         };
     };
     
-    constructor(private $scope,
-        private $location,
-        private PageValues: PageValues,
-        private show,
+    constructor(private PageValues: PageValues,
+        private show : Show,
         private ShowService: ShowService) {
             PageValues.title = "VIEW";
-            PageValues.description = "Overview, seasons & info for '" + show.original_name + "'.";    
+            PageValues.description = `Overview, seasons & info for '${show.original_name}'.`;    
 
             this.show.cast = [];
-            ShowService.getCast(this.show.id).then((response) => {
+            ShowService.getCast(this.show.id).then((response : Show) => {
                 this.show.cast = response.cast;
             });
         }

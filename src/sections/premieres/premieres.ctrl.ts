@@ -1,7 +1,5 @@
 class PremieresController implements ng.IController {
-    constructor(private $scope,
-        private shows,
-        private PageValues: PageValues) {
+    constructor(private PageValues: PageValues) {
             PageValues.title = "PREMIERES";
             PageValues.description = "Brand new shows showing this month.";
         }

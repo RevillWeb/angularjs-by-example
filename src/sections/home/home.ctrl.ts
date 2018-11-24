@@ -7,8 +7,7 @@ class Tutorial {
 class HomeController implements ng.IController {
     tutorials: Tutorial[];
     
-    constructor(private $scope, 
-        private PageValues : PageValues) {
+    constructor(private PageValues : PageValues) {
             PageValues.title = "HOME";
             PageValues.description = "Learn AngularJS using best practice real world examples.";
             this.tutorials = [
