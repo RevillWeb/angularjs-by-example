@@ -49,7 +49,7 @@ class ShowService {
         //Get first day of the current month
         let date = new Date();
         date.setDate(1);
-        return this.makeRequest('discover/tv', {'first_air_date.gte': this.moment(date).format('DD-MM-YYYY'), append_to_response: 'genres'}).then((data : TvServiceResponse) => {
+        return this.makeRequest('discover/tv', {'first_air_date.gte': this.moment(date), append_to_response: 'genres'}).then((data : TvServiceResponse) => {
             return data.results;
         });
     }
