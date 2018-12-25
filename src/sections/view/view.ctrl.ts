@@ -1,4 +1,4 @@
-class ViewController {    
+class ViewController {
 
     setBannerImage = () => {
         return {
@@ -7,12 +7,11 @@ class ViewController {
             'background-position': '100% 0%'
         };
     };
-    
-    constructor(private PageValues: PageValues,
-        private show : Show,
+
+    constructor(private show : Show,
         private ShowService: ShowService) {
-            PageValues.title = "VIEW";
-            PageValues.description = `Overview, seasons & info for '${show.original_name}'.`;    
+            PageValues.instance.title = "VIEW";
+            PageValues.instance.description = `Overview, seasons & info for '${show.original_name}'.`;
 
             this.show.cast = [];
             ShowService.getCast(this.show.id).then((response : Show) => {

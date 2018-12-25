@@ -1,9 +1,7 @@
 class PageValues {
     title : string
     description : string
-    loading : boolean    
-}
+    loading : boolean
 
-angular
-    .module('app.core')
-    .value('PageValues', PageValues);
+    static instance : PageValues = new PageValues();
+}

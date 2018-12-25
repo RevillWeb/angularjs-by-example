@@ -1,8 +1,8 @@
 class BarController implements ng.IController {
     data : PageValues
 
-    constructor(private PageValues : PageValues) {
-            this.data = PageValues
+    constructor() {
+            this.data = PageValues.instance
         }
 }
 

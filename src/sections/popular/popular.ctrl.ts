@@ -1,8 +1,7 @@
 class PopularController implements ng.IController {
-    constructor(private PageValues: PageValues,
-        private shows: Show[]) {
-            PageValues.title = "POPULAR";
-            PageValues.description = "The most popular TV shows.";
+    constructor(private shows: Show[]) {
+            PageValues.instance.title = "POPULAR";
+            PageValues.instance.description = "The most popular TV shows.";
     }
 }
 
